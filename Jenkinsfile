@@ -36,12 +36,12 @@ pipeline {
             
             steps {
                    sh """ 
-                     AWSCreds=curl -v http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins
-                     AWS_KeyID="echo $AWSCreds | jq '.AccessKeyId'"
-                     AWS_SecID="echo $AWSCreds | jq '.SecretAccessKey'"
-                     AWS_Token="echo $AWSCreds | jq '.Token'"
-                     echo $AWS_KeyID
-                     echo $AWS_SecID
+                       AWSCreds=curl -v http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins
+                       AWS_KeyID="echo $AWSCreds | jq '.AccessKeyId'"
+                       AWS_SecID="echo $AWSCreds | jq '.SecretAccessKey'"
+                       AWS_Token="echo $AWSCreds | jq '.Token'"
+                       echo $AWS_KeyID
+                       echo $AWS_SecID
                    """
                 
                 sh 'make tf-init tf-plan tf-validate'
