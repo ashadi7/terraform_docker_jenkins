@@ -1,7 +1,7 @@
 .PHONY: assume-role
 assume-role:
       AWSCreds := $(shell curl -v http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins)
-      @echo $AWSCreds
+      @echo $(AWSCreds)
 
 .PHONY: tf-init
 tf-init:
