@@ -37,7 +37,6 @@ pipeline {
             steps {
                 script {
                    sh (script: TOKEN='curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"' && AWSCreds='curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins' && AWS_KeyID="echo $AWSCreds | jq '.AccessKeyId'" && AWS_SecID="echo $AWSCreds | jq '.SecretAccessKey'" && AWS_Token="echo $AWSCreds | jq '.Token'")
-                   sh "echo $(AWS_SecID)"
                 }	
                 sh 'make tf-init tf-plan tf-validate'
             }
