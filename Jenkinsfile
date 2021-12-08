@@ -49,8 +49,8 @@ pipeline {
                       AWS_SecID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.SecretAccessKey'").trim()
                       AWS_Token=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.Token'").trim()
                 } 
-                println ${AWS_KeyID}
-                println $(AWS_SecID)
+                println "${AWS_KeyID}"
+                println "$(AWS_SecID)"
                 println $AWS_Token
                 sh 'make  tf-init tf-plan tf-validate'
             }
