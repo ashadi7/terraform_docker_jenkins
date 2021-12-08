@@ -9,10 +9,16 @@ pipeline {
     }
 
 
-     //environment {
+     environment {
        // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
        // AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    //}
+                script {
+                        AWS_KeyID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.AccessKeyId'").trim()
+                        AWS_SecID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.SecretAccessKey'").trim()
+                        AWS_Token=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.Token'").trim()
+                   }
+             
+    }
 
 
     stages {
@@ -43,13 +49,6 @@ pipeline {
           //             echo $AWS_KeyID
            //            echo $AWS_SecID
            //        """
-              environment { 
-                  script {
-                        AWS_KeyID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.AccessKeyId'").trim()
-                        AWS_SecID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.SecretAccessKey'").trim()
-                        AWS_Token=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.Token'").trim()
-                   }
-              } 
                 println "${AWS_KeyID}"
                 println "${AWS_SecID}"
                 println "${AWS_Token}"
