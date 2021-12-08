@@ -44,7 +44,7 @@ pipeline {
            //            echo $AWS_SecID
            //        """
                 
-                sh 'make assume-role tf-init tf-plan tf-validate'
+                sh 'make  tf-init tf-plan tf-validate'
             }
         }
         stage('Approval') {
