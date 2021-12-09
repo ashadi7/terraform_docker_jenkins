@@ -20,7 +20,7 @@ tf-validate:
 
 .PHONY: tf-plan
 tf-plan:
-	docker-compose -f deploy/docker-compose.yml run  terraform plan -out tfplan.txt
+	docker-compose -f deploy/docker-compose.yml run  terraform plan -out ../tfplan.txt
 
 .PHONY: tf-apply
 tf-apply:
