@@ -3,5 +3,6 @@
 #       configuration for simplicity.
 
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-southeast-2"
+  skip_credentials_validation = true
 }
