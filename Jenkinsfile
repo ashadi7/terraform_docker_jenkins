@@ -15,7 +15,6 @@ pipeline {
           AWS_ACCESS_KEY_ID=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.AccessKeyId'").trim()
           AWS_SECRET_ACCESS_KEY=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.SecretAccessKey'").trim()
           AWS_SESSION_TOKEN=sh(returnStdout: true, script: "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/delegate-admin-jenkins | jq '.Token'").trim()
-          AWS_SECURITY_TOKEN = ${AWS_SESSION_TOKEN}   
     }
 
 
