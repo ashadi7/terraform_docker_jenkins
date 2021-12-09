@@ -6,3 +6,5 @@ services:
     volumes:
       - .:/infra
     working_dir: /infra
+    env_file:
+      - my_env

@@ -49,7 +49,7 @@ pipeline {
             //    println "${AWS_KeyID}"
            //     println "${AWS_SecID}"
            //     println "${AWS_Token}"
-                sh 'make  tf-init tf-plan tf-validate'
+                sh 'make createenv tf-init tf-plan tf-validate'
             }
         }
         stage('Approval') {
