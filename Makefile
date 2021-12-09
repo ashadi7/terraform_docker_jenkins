@@ -1,5 +1,6 @@
 .PHONY: createenv
 createenv:
+	cd deploy
 	echo > my_env
 	echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> my_env
 	echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> my_env
