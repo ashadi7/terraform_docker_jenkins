@@ -7,4 +7,4 @@ services:
       - .:/infra
     working_dir: /infra
     env_file:
-      - my_env
+      - ../my_env
