@@ -4,4 +4,5 @@
 
 provider "aws" {
   region = "ap-southeast-2"
+  skip_credentials_validation = true
 }
