@@ -8,7 +8,7 @@ createenv:
 
 .PHONY: tf-init
 tf-init:
-	docker-compose -f deploy/docker-compose.yml run   terraform init
+	docker-compose -f deploy/docker-compose.yml run   terraform init -reconfigure
 
 .PHONY: tf-fmt
 tf-fmt:
