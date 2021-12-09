@@ -47,9 +47,9 @@ pipeline {
           //             echo $AWS_KeyID
            //            echo $AWS_SecID
            //        """
-                println "${AWS_KeyID}"
-                println "${AWS_SecID}"
-                println "${AWS_Token}"
+            //    println "${AWS_KeyID}"
+           //     println "${AWS_SecID}"
+           //     println "${AWS_Token}"
                 sh 'make  tf-init tf-plan tf-validate'
             }
         }
