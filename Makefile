@@ -20,12 +20,12 @@ tf-validate:
 
 .PHONY: tf-plan
 tf-plan:
-	docker-compose -f deploy/docker-compose.yml run  terraform plan -out ../tfplan.txt
+	docker-compose -f deploy/docker-compose.yml run  terraform plan -input=false tfplan
 
 .PHONY: tf-apply
 tf-apply:
-	docker-compose -f deploy/docker-compose.yml run  terraform apply
+	docker-compose -f deploy/docker-compose.yml run  terraform apply -input=false tfplan
 
 .PHONY: tf-destroy
 tf-destroy:
-	docker-compose -f deploy/docker-compose.yml run  terraform destroy
+	docker-compose -f deploy/docker-compose.yml run  terraform destroy  -input=false tfplan
