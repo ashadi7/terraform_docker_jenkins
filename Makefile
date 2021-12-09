@@ -1,10 +1,10 @@
 .PHONY: createenv
 createenv:
-	echo > my_env
-	echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> my_env
-	echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> my_env
-	echo "AWS_SECURITY_TOKEN=${AWS_SESSION_TOKEN}" >> my_env
-	echo "AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}" >> my_env
+	-@echo > my_env
+	-@echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> my_env
+	-@echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> my_env
+	-@echo "AWS_SECURITY_TOKEN=${AWS_SESSION_TOKEN}" >> my_env
+	-@echo "AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}" >> my_env
 
 .PHONY: tf-init
 tf-init:
