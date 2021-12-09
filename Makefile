@@ -1,6 +1,6 @@
 .PHONY: tf-init
 tf-init:
-        docker-compose -f deploy/docker-compose.yml run sh 'env'
+	docker-compose -f deploy/docker-compose.yml run sh 'env'
 	docker-compose -f deploy/docker-compose.yml run terraform init
 
 .PHONY: tf-fmt
